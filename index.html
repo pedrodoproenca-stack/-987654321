@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretrizes de Desenvolvimento Front-End Profissional</title>
+    <style>
+        /* Reset de Margens e Box-Sizing */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Configuração Base de Alto Contraste */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a; /* Azul escuro profundo */
+            color: #f8fafc; /* Texto claro de alto contraste */
+            line-height: 1.6;
+            padding: 30px;
+        }
+
+        /* Foco Visível para Navegação Acessível por Teclado */
+        *:focus {
+            outline: 5px solid #38bdf8;
+            outline-offset: 5px;
+        }
+
+        /* Container de Layout Responsivo com Flexbox */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Cabeçalho Semântico */
+        header {
+            background-color: #1e293b;
+            padding: 40px;
+            border-radius: 12px;
+            border-bottom: 8px solid #38bdf8;
+            text-align: center;
+        }
+
+        /* LETRAS MUITO GRANDES PARA FÁCIL IDENTIFICAÇÃO */
+        h1 {
+            font-size: 40pt; /* Tamanho massivo para o título principal */
+            color: #ffffff;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 30pt; /* Letras grandes para subtítulos */
+            color: #38bdf8;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        p, li {
+            font-size: 22pt; /* Texto corrido ampliado para leitura sem esforço */
+            color: #cbd5e1;
+        }
+
+        strong {
+            color: #f1f5f9;
+        }
+
+        /* Seções Semânticas (Main e Section) */
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        section {
+            background-color: #1e293b;
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 10px solid #38bdf8;
+        }
+
+        /* Caixa de Destaque da Identidade Visual Coesa */
+        .identidade-visual {
+            border-left-color: #a855f7; /* Cor roxa para destacar a identidade */
+        }
+
+        /* Listas Formatadas e Espaçadas */
+        ul {
+            list-style-type: square;
+            padding-left: 40px;
+            margin-top: 20px;
+        }
+
+        li {
+            margin-bottom: 20px;
+        }
+
+        /* Área do Depurador Dinâmico (JavaScript + DOM) */
+        .debug-box {
+            border-left-color: #ef4444; /* Borda lateral vermelha */
+        }
+
+        /* CAIXINHA VERMELHA DE ALTO IMPACTO PARA DEPURADOR */
+        .console-container {
+            margin-top: 30px;
+            background-color: #450a0a; /* Fundo vermelho escuro bem nítido */
+            padding: 35px;
+            border-radius: 8px;
+            border: 4px solid #f43f5e; /* Borda vermelha sólida e grossa */
+        }
+
+        /* Mostrador do Log com Letras Gigantes */
+        .console-log {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 26pt;
+            color: #fecdd3; /* Texto rosa/vermelho bem claro para contraste no fundo escuro */
+            display: block;
+            margin-bottom: 25px;
+            word-break: break-word;
+            font-weight: bold;
+        }
+
+        /* Botão Acessível e Gigante */
+        .btn-debug {
+            background-color: #ef4444; /* Botão Vermelho */
+            color: #ffffff;
+            font-size: 24pt;
+            font-weight: bold;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-debug:hover {
+            background-color: #dc2626;
+        }
+
+        /* Rodapé Semântico */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 3px solid #334155;
+            margin-top: 20px;
+        }
+
+        footer p {
+            font-size: 18pt;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <header role="banner">
+            <h1>Desenvolvimento Profissional</h1>
+        </header>
+
+        <main role="main">
+
+            <section class="identidade-visual" aria-labelledby="tit-identidade">
+                <h2 id="tit-identidade">Criação & Identidade</h2>
+                <p>Nossos projetos prezam pelo desenvolvimento de soluções com <strong>autoria própria</strong>, respeito a padrões éticos e manutenção de uma identidade visual forte e coesa para o usuário.</p>
+            </section>
+
+            <section aria-labelledby="tit-codigo">
+                <h2 id="tit-codigo">Pilares Técnicos</h2>
+                <p>A arquitetura das páginas é construída sob três fundamentos essenciais:</p>
+                <ul>
+                    <li><strong>Código Limpo:</strong> Sintaxe legível, organizada e fácil de manter.</li>
+                    <li><strong>Estrutura Semântica:</strong> Uso correto das tags para semântica web.</li>
+                    <li><strong>Acessibilidade Universal:</strong> Telas adaptáveis que incluem múltiplos dispositivos e condições de navegação.</li>
+                </ul>
+            </section>
+
+            <section class="debug-box" aria-labelledby="tit-debug">
+                <h2 id="tit-debug" style="color: #ef4444;">Depuração de Código</h2>
+                <p>Veja abaixo a caixinha vermelha do depurador de bugs. Clique no botão para alternar a lógica condicional do sistema:</p>
+                
+                <div class="console-container">
+                    <div id="log-display" class="console-log" aria-live="assertive">
+                        SISTEMA: Pronto para iniciar varredura.
+                    </div>
+                    
+                    <button id="btn-run-debug" class="btn-debug" aria-label="Iniciar depurador e corrigir falhas do sistema">
+                        Executar Depuração (Fix Bugs)
+                    </button>
+                </div>
+            </section>
+
+        </main>
+
+        <footer role="contentinfo">
+            <p>Projeto Organizado, Documentado e Pronto para o GitHub</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let cliqueContador = 0;
+            const logDisplay = document.getElementById('log-display');
+            const btnDebug = document.getElementById('btn-run-debug');
+
+            btnDebug.addEventListener('click', function() {
+                cliqueContador++;
+
+                // Lógica Condicional operando as mensagens da Caixinha Vermelha
+                if (cliqueContador === 1) {
+                    logDisplay.textContent = "🐛 BUG DETECTADO: Falha crítica na linha de código 104.";
+                    logDisplay.style.color = "#fca5a5"; // Rosa claro para legibilidade no fundo escuro
+                    btnDebug.style.backgroundColor = "#b91c1c"; // Muda o tom do botão vermelho
+                    btnDebug.textContent = "Corrigir Falha Agora";
+                } else if (cliqueContador === 2) {
+                    logDisplay.textContent = "⚡ PROCESSANDO: Eliminando falhas e otimizando o DOM...";
+                    logDisplay.style.color = "#fde047"; // Amarelo de atenção temporária
+                    btnDebug.style.backgroundColor = "#ea580c"; // Botão muda para laranja
+                    btnDebug.textContent = "Concluir Publicação";
+                } else {
+                    logDisplay.textContent = "✅ SUCESSO COMPLETO: Código limpo, testado e publicado com ética!";
+                    logDisplay.style.color = "#86efac"; // Verde claro para contraste de sucesso
+                    btnDebug.style.backgroundColor = "#22c55e"; // Botão fica verde ao finalizar
+                    btnDebug.textContent = "Reiniciar Sistema";
+                    cliqueContador = 0; // Reinicia o ciclo
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
